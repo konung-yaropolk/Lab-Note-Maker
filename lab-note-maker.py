@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import os
-
+from datetime import datetime
 
 DIRECTORIES = [
     'F:\Lab Work Files\\2-photon',
@@ -43,7 +43,8 @@ def txt_catcher(directories):
 
 def textgen(txt_files):
 
-    head = "Lab Note\n\nList of source files: \n\n\n"
+    date = datetime.now()
+    head = "Lab Note\nGenerated: {}\n\nList of source files: \n\n\n".format(date)
     text = ""
 
     for file_path in txt_files:
