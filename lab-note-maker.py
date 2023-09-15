@@ -47,7 +47,7 @@ def textgen(txt_files):
 
     for file_path in txt_files:
 
-        text += "-"*60 + "\n"
+        text += "#"*100 + "\n"
         text += "File: {}\n\n".format(file_path[2:])
 
         with open(file_path, "r", encoding="utf8") as f:
