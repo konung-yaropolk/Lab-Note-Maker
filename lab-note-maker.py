@@ -43,15 +43,20 @@ def txt_catcher(directories):
 
 def textgen(txt_files):
 
+    head = "Lab Note\n\nList of source files: \n\n\n"
     text = ""
 
     for file_path in txt_files:
+
+        head += file_path[2:]+"\n"
 
         text += "#"*100 + "\n"
         text += "File: {}\n\n".format(file_path[2:])
 
         with open(file_path, "r", encoding="utf8") as f:
             text += f.read() + "\n\n\n"
+
+    text = head + '\n\n\n' + text
 
     return text
 
