@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import os
 
 
@@ -50,7 +51,7 @@ def textgen(txt_files):
         text += "File: {}\n\n".format(file_path[2:])
 
         with open(file_path, "r", encoding="utf8") as f:
-            text += f.read() + "\n\n"
+            text += f.read() + "\n\n\n"
 
     return text
 
