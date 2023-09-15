@@ -2,7 +2,7 @@ import os
 
 
 DIRECTORIES = [
-    'F:\Lab Work Files\2-photon',
+    'F:\Lab Work Files\\2-photon',
     'F:\Lab Work Files\Patch-clamp data',
     ]
 
