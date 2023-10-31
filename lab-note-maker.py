@@ -21,7 +21,6 @@ def find_txt_files(directory):
 
 
 def txt_catcher(directories):
-
     txt_files = []
 
     for directory in directories:
