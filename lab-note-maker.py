@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 import os
+import textwrap
 from datetime import datetime
+#from fpdf import FPDF
 
 DIRECTORIES = [
-    'F:\Lab Work Files\\2-photon',
-    'F:\Lab Work Files\Patch-clamp data',
+    # 'F:\Lab Work Files\2-photon',
+    # 'F:\Lab Work Files\Patch-clamp data',
+    '/run/media/lol/Yarik Data/Lab Work Files/2-photon',
+    '/run/media/lol/Yarik Data/Lab Work Files/Patch-clamp data',
     ]
 
 
@@ -61,13 +65,42 @@ def textgen(txt_files):
     return text
 
 
+# def text_to_pdf(text, filename):
+
+#     a4_width_mm = 210
+#     pt_to_mm = 0.35
+#     fontsize_pt = 10
+#     fontsize_mm = fontsize_pt * pt_to_mm
+#     margin_bottom_mm = 10
+#     character_width_mm = 7 * pt_to_mm
+#     width_text = a4_width_mm / character_width_mm
+
+#     pdf = FPDF(orientation='P', unit='mm', format='A4')
+#     pdf.set_auto_page_break(True, margin=margin_bottom_mm)
+#     pdf.add_page()
+#     pdf.set_font(family='Courier', size=fontsize_pt)
+#     splitted = text.split('\n')
+
+#     for line in splitted:
+#         lines = textwrap.wrap(line, width_text)
+
+#         if len(lines) == 0:
+#             pdf.ln()
+
+#         for wrap in lines:
+#             pdf.cell(0, fontsize_mm, wrap, ln=1)
+
+#     pdf.output(filename, 'F')
+
 def main():
 
     txt_files = txt_catcher(DIRECTORIES)
     lab_note = textgen(txt_files)
 
+    #text_to_pdf(lab_note, 'lab_note.pdf')
     with open('lab_note.txt', 'w', encoding="utf8") as f:
         f.write(lab_note)
+
 
 
 if __name__ == "__main__":
