@@ -2,14 +2,14 @@
 import os
 import textwrap
 from datetime import datetime
-#from fpdf import FPDF
+# from fpdf import FPDF
 
 DIRECTORIES = [
-    # 'F:\Lab Work Files\2-photon',
-    # 'F:\Lab Work Files\Patch-clamp data',
-    '/run/media/lol/Yarik Data/Lab Work Files/2-photon',
-    '/run/media/lol/Yarik Data/Lab Work Files/Patch-clamp data',
-    ]
+    'F:\\Lab Work Files\\2-photon',
+    'F:\Lab Work Files\Patch-clamp data',
+    # '/run/media/lol/Yarik Data/Lab Work Files/2-photon',
+    # '/run/media/lol/Yarik Data/Lab Work Files/Patch-clamp data',
+]
 
 
 def find_txt_files(directory):
@@ -30,9 +30,9 @@ def txt_catcher(directories):
     for directory in directories:
 
         if os.path.isdir(directory):
-            
+
             txt_files.extend(find_txt_files(directory))
-            
+
             if txt_files:
                 print("Open path: ", directory)
             else:
@@ -40,14 +40,15 @@ def txt_catcher(directories):
 
         else:
             print("Invalid directory path: ", directory)
-    
+
     return txt_files
 
 
 def textgen(txt_files):
 
     date = datetime.now()
-    head = "Lab Note\nGenerated: {}\n\nList of source files: \n\n\n".format(date)
+    head = "Lab Note\nGenerated: {}\n\nList of source files: \n\n\n".format(
+        date)
     text = ""
 
     for file_path in txt_files:
@@ -97,10 +98,9 @@ def main():
     txt_files = txt_catcher(DIRECTORIES)
     lab_note = textgen(txt_files)
 
-    #text_to_pdf(lab_note, 'lab_note.pdf')
+    # text_to_pdf(lab_note, 'lab_note.pdf')
     with open('lab_note.txt', 'w', encoding="utf8") as f:
         f.write(lab_note)
-
 
 
 if __name__ == "__main__":
